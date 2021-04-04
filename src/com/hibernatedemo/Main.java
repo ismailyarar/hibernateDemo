@@ -18,7 +18,9 @@ public class Main {
             session.beginTransaction();
             //select * from city
             //List<City> cities = session.createQuery("from City").getResultList();
-            List<City> cities = session.createQuery("from City c where c.countryCode='TUR'").getResultList();
+            //List<City> cities = session.createQuery("from City c where c.countryCode='TUR' and c.district='Ankara'").getResultList();
+            //List<City> cities = session.createQuery("from City c where c.name like 'kar%'").getResultList();
+            List<City> cities = session.createQuery("from City c order by c.name").getResultList();
 
             for (City city : cities) {
                 System.out.println(city.getName());
