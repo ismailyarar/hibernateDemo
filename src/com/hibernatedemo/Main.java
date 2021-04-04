@@ -20,12 +20,20 @@ public class Main {
             //List<City> cities = session.createQuery("from City").getResultList();
             //List<City> cities = session.createQuery("from City c where c.countryCode='TUR' and c.district='Ankara'").getResultList();
             //List<City> cities = session.createQuery("from City c where c.name like 'kar%'").getResultList();
-            List<String> countryCodes = session.createQuery("select c.countryCode from City c group by c.countryCode").getResultList();
+            /*List<String> countryCodes = session.createQuery("select c.countryCode from City c group by c.countryCode").getResultList();
 
             for (String countryCode : countryCodes) {
                 System.out.println(countryCode);
-            }
+            }*/
+            City city=new City();
+            city.setName("iznik");
+            city.setCountryCode("TUR");
+            city.setDistrict("Anadolu");
+            city.setPopulation(150000);
+            session.save(city);
+
             session.getTransaction().commit();
+            System.out.println("şehir eklendi");
 
         } finally {
             sessionFactory.close();
