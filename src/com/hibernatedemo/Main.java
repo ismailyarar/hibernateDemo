@@ -25,15 +25,26 @@ public class Main {
             for (String countryCode : countryCodes) {
                 System.out.println(countryCode);
             }*/
-            City city=new City();
+            //insert
+            /*City city=new City();
             city.setName("iznik");
             city.setCountryCode("TUR");
             city.setDistrict("Anadolu");
             city.setPopulation(150000);
+            session.save(city);*/
+
+            //update
+            /*City city =session.get(City.class,4056);
+            city.setPopulation(99000);
             session.save(city);
+            System.out.println(city.getName());*/
+
+            //Delete
+            City city=session.get(City.class,4056);
+            session.delete(city);
 
             session.getTransaction().commit();
-            System.out.println("şehir eklendi");
+            System.out.println(city.getName()+" "+"şehir silindi");
 
         } finally {
             sessionFactory.close();
